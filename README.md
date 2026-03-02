@@ -26,7 +26,7 @@
 - Polling mode — no webhook, no HTTP server needed
 - JSON file persistence — no database required
 - Auto-reopens closed topics when users send new messages
-- Operator commands: close, reopen, ban
+- Operator commands: close, reopen, ban, unban
 
 ## How it works
 
@@ -97,6 +97,7 @@ npm start
 | `/close`  | Close the ticket, notify the user    |
 | `/reopen` | Reopen a closed ticket               |
 | `/ban`    | Ban the user and close the ticket    |
+| `/unban`  | Unban the user                       |
 
 ## Architecture
 

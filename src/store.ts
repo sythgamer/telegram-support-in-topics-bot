@@ -69,3 +69,9 @@ export function ban(userId: number): void {
   bannedUserIds.add(userId);
   persist();
 }
+
+export function unban(userId: number): boolean {
+  const removed = bannedUserIds.delete(userId);
+  if (removed) persist();
+  return removed;
+}

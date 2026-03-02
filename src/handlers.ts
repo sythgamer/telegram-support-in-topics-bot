@@ -3,10 +3,24 @@ import { config } from './config.js';
 import * as store from './store.js';
 
 const staffGroupId = config.SUPPORT_STAFF_GROUP_ID;
+const MAX_TOPIC_NAME = 128;
 
 function userDisplayName(from: { first_name: string; last_name?: string; username?: string }): string {
   const name = from.last_name ? `${from.first_name} ${from.last_name}` : from.first_name;
   return from.username ? `${name} (@${from.username})` : name;
+}
+
+function topicName(from: { first_name: string; last_name?: string; username?: string }): string {
+  const display = userDisplayName(from);
+  return display.length <= MAX_TOPIC_NAME ? display : display.slice(0, MAX_TOPIC_NAME - 1) + '…';
+}
+
+async function notifyUser(bot: Bot, userId: number, text: string): Promise<void> {
+  try {
+    await bot.api.sendMessage(userId, text);
+  } catch {
+    // User may have blocked the bot — nothing we can do.
+  }
 }
 
 export async function forwardWithAutoReopen(params: {
@@ -46,7 +60,7 @@ export function registerHandlers(bot: Bot): void {
       // topic may already be closed
     }
     if (userId) {
-      await bot.api.sendMessage(userId, 'Your ticket has been closed. If you have more questions, just send a new message.');
+      await notifyUser(bot, userId, 'Your ticket has been closed. If you have more questions, just send a new message.');
     }
   });
 
@@ -73,8 +87,22 @@ export function registerHandlers(bot: Bot): void {
     } catch {
       // topic may already be closed
     }
-    await bot.api.sendMessage(userId, 'You have been blocked from support.');
+    await notifyUser(bot, userId, 'You have been blocked from support.');
     await ctx.reply(`User ${userId} has been banned.`);
+  });
+
+  bot.command('unban', async (ctx) => {
+    if (ctx.chat.id !== staffGroupId || !ctx.msg.message_thread_id) return;
+    const userId = store.getUserId(ctx.msg.message_thread_id);
+    if (!userId) {
+      await ctx.reply('Could not find a user for this topic.');
+      return;
+    }
+    if (!store.unban(userId)) {
+      await ctx.reply('This user is not banned.');
+      return;
+    }
+    await ctx.reply(`User ${userId} has been unbanned.`);
   });
 
   // User messages in private chat → forward to forum topic
@@ -89,7 +117,7 @@ export function registerHandlers(bot: Bot): void {
 
       if (topicId === undefined) {
         // Create new forum topic
-        const topic = await bot.api.createForumTopic(staffGroupId, userDisplayName(ctx.from));
+        const topic = await bot.api.createForumTopic(staffGroupId, topicName(ctx.from));
         topicId = topic.message_thread_id;
         store.setMapping(userId, topicId);
 
